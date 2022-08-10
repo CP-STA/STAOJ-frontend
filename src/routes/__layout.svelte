@@ -1,6 +1,8 @@
 
 <script>
+// @ts-nocheck
 	import Header from '$lib/Header.svelte';
+
 </script>
 
 <Header />

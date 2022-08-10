@@ -12,7 +12,7 @@
 		<li class="nav-item"><a sveltekit:prefetch class="nav-link" href="/" class:active={$page.url.pathname === '/'}>Home</a></li>
 		<li class="nav-item"><a sveltekit:prefetch class="nav-link" href="/contests" class:active={$page.url.pathname === '/contests'}>Contests</a></li>
 		<li class="nav-item"><a sveltekit:prefetch class="nav-link" href="/past-problems" class:active={$page.url.pathname === '/past-problems'} >Past Problems</a></li>
-		<li class="nav-item"><a sveltekit:prefetch class="nav-link" href="/login" class:active={$page.url.pathname === '/login'} >Login / Sign Up</a></li>
+		<li class="nav-item"><a sveltekit:prefetch class="nav-link" href="/account" class:active={$page.url.pathname === '/account'} >Account</a></li>
 	</ul>
   
 </header>

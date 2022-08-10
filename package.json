@@ -37,6 +37,8 @@
 		"@smui/checkbox": "^6.0.0",
 		"@smui/form-field": "^6.0.0",
 		"bootstrap": "^5.2.0",
+		"bootstrap-icons": "^1.9.1",
+		"firebase": "^9.9.2",
 		"sass": "^1.54.3",
 		"sveltestrap": "^5.9.0"
 	}
