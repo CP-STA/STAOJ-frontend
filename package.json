@@ -23,6 +23,7 @@
 		"@smui/top-app-bar": "^6.0.0",
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
+		"@types/bootstrap": "^5.2.1",
 		"prettier": "^2.7.1",
 		"prettier-plugin-svelte": "^2.7.0",
 		"smui-theme": "^6.0.0",
