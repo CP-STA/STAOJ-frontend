@@ -1,7 +1,7 @@
 <script>
 	// @ts-nocheck
 
-	import { app as firebaseApp } from '$lib/Firebase.svelte';
+	import { app as firebaseApp } from '$lib/firebase';
 	import { getAuth, signOut, signInWithPopup, GithubAuthProvider } from 'firebase/auth';
 	import { user } from '$lib/User.svelte';
 

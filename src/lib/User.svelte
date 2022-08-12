@@ -2,7 +2,7 @@
 	import { readable } from 'svelte/store';
 
 	import { getAuth, signOut, onAuthStateChanged } from 'firebase/auth';
-	import { app } from '$lib/Firebase.svelte';
+	import { app } from '$lib/firebase';
 
 	const auth = getAuth(app);
 	export const user = readable(
