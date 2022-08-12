@@ -1,5 +1,6 @@
 <script>
 	import { page } from '$app/stores';
+	import { time } from '$lib/stores';
 </script>
 
 <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom mx-3">
@@ -21,8 +22,8 @@
 			<a
 				sveltekit:prefetch
 				class="nav-link"
-				href="/contests"
-				class:active={$page.url.pathname === '/contests'}>Contests</a
+				href="/contest"
+				class:active={$page.url.pathname === '/contest'}>Contest</a
 			>
 		</li>
 		<li class="nav-item">
@@ -40,6 +41,15 @@
 				href="/account"
 				class:active={$page.url.pathname === '/account'}>Account</a
 			>
+		</li>
+		<li class="nav-item">
+			{#if $time}
+				<button class="btn btn-success pt-2 pb-2 ms-2 border-0 font-monospace"
+					>{$time.toTimeString().split(' ')[0]}</button
+				>
+			{:else}
+				<button class="btn btn-secondary pt-2 pb-2 ms-2 border-0 font-monospace">00:00:00</button>
+			{/if}
 		</li>
 	</ul>
 </header>

@@ -1,12 +1,13 @@
 <script context="module">
 	// Import the functions you need from the SDKs you need
 	import { initializeApp } from 'firebase/app';
-
-	// TODO: Add SDKs for Firebase products that you want to use
-	// https://firebase.google.com/docs/web/setup#available-libraries
+	import 'firebase/firestore';
 
 	// Your web app's Firebase configuration
 	// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+	// TODO: Add rechapta
+
 	const firebaseConfig = {
 		apiKey: 'AIzaSyCOHc3CptFHnmuSeYL4yLPfnVNeqp7NC-A',
 		authDomain: 'staoj-database.firebaseapp.com',

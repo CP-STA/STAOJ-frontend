@@ -25,5 +25,6 @@
 				}
 			});
 		}
+		// TODO: Free the resource after use
 	);
 </script>

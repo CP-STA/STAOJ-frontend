@@ -34,7 +34,7 @@
 	<tbody>
 		{#each problems as problem}
 			<tr>
-				<td><a sveltekit:prefetch href="/past-problems/{problem.slug}">{problem.name}</a></td>
+				<td><a sveltekit:prefetch href="/problems/{problem.slug}">{problem.name}</a></td>
 				<td>{formatDate(new Date(problem.date))}</td>
 				<td>{problem.difficulty}</td>
 			</tr>

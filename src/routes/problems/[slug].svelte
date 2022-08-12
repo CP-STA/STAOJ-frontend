@@ -41,7 +41,6 @@
 <p>{problem.constrains}</p>
 
 {#if problem.subtasks}
-	<h2 />
 	{#each problem.subtasks as subtask, i}
 		<h3>
 			Subtask {i + 1} ({subtask.percentage * 100} %)
