@@ -44,11 +44,11 @@
 		</li>
 		<li class="nav-item">
 			{#if $time}
-				<button class="btn btn-success pt-2 pb-2 ms-2 border-0 font-monospace"
-					>{$time.toTimeString().split(' ')[0]}</button
+				<span class="btn btn-success pt-2 pb-2 ms-2 border-0 font-monospace"
+					>{$time.toTimeString().split(' ')[0]}</span
 				>
 			{:else}
-				<button class="btn btn-secondary pt-2 pb-2 ms-2 border-0 font-monospace">00:00:00</button>
+				<span class="btn btn-secondary pt-2 pb-2 ms-2 border-0 font-monospace">00:00:00</span>
 			{/if}
 		</li>
 	</ul>
