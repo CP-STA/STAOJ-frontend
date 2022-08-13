@@ -1,7 +1,7 @@
 <script context="module">
 	/** @type {import('./__types/[slug]').Load} */
 	export async function load({ params, fetch }) {
-		const url = `https://raw.githubusercontent.com/CP-STA/contest-problems/main/${params.slug}/statement.json`;
+		const url = `https://cdn.jsdelivr.net/gh/CP-STA/contest-problems@main/${params.slug}/statement.json`;
 		const response = await fetch(url);
 
 		return {

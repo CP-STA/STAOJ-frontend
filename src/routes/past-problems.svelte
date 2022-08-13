@@ -1,6 +1,6 @@
 <script context="module">
 	export async function load({ params, fetch }) {
-		const url = `https://raw.githubusercontent.com/CP-STA/contest-problems/main/index.json`;
+		const url = `https://cdn.jsdelivr.net/gh/CP-STA/contest-problems@main/past-problems.json`;
 		const response = await fetch(url);
 
 		return {
