@@ -3,12 +3,7 @@ import path from 'path';
 
 /** @type {import('vite').UserConfig} */
 const config = {
-	plugins: [sveltekit()],
-	resolve: {
-		alias: {
-			'~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap')
-		}
-	}
+	plugins: [sveltekit()]
 };
 
 export default config;
