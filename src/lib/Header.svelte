@@ -45,10 +45,10 @@
 		<li class="nav-item">
 			{#if $time}
 				<span class="btn btn-success pt-2 pb-2 ms-2 border-0 font-monospace"
-					>{$time.toTimeString().split(' ')[0]}</span
+					>{$time.toLocaleTimeString('en-GB')}</span
 				>
 			{:else}
-				<span class="btn btn-secondary pt-2 pb-2 ms-2 border-0 font-monospace">00:00:00</span>
+				<span class="btn btn-secondary pt-2 pb-2 ms-2 border-0 font-monospace">{(new Date()).toLocaleTimeString('en-GB')}</span>
 			{/if}
 		</li>
 	</ul>

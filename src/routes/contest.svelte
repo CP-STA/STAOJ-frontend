@@ -23,10 +23,10 @@
 	const problems = info.problems;
 	function formatDate(dateString) {
 		const options = { year: 'numeric', month: 'long', day: 'numeric' };
-		return new Date(dateString).toLocaleDateString(undefined, options);
+		return new Date(dateString).toLocaleDateString("en-GB", options);
 	}
 	function formatTime(dateString) {
-		return new Date(dateString).toLocaleTimeString(undefined);
+		return new Date(dateString).toLocaleTimeString("en-GB");
 	}
 	$: isAfterStart = new Date(info.info.startTime) <= $currentTime;
 	$: isBeforeEnd = $currentTime < new Date(info.info.endTime);
