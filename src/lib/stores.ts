@@ -6,24 +6,27 @@ let synced = false;
 
 
 
-export const time = readable<null | Date>(null, function start(set) {
+export const time = readable({synced: false, date: new Date()}, function start(set) {
 	if (browser) {
 		(async () => {
-			let response = await fetch('https://worldtimeapi.org/api/timezone/GMT');
-			let data = await response.json();
-			offset = data.unixtime - Math.floor(new Date().getTime() / 1000);
-			synced = true;
-			let date = new Date((offset + Math.floor(new Date().getTime() / 1000)) * 1000);
-			set(date);
+			try {
+				let response = await fetch('https://worldtimeapi.org/api/timezone/GMT');
+				if (!response.ok) {
+					throw Error("Response from time time url was not ok");
+				}
+				let data = await response.json();
+				offset = data.unixtime - Math.floor(new Date().getTime() / 1000);
+				synced = true;
+				let date = new Date((offset + Math.floor(new Date().getTime() / 1000)) * 1000);
+				set({synced, date});
+			} catch (error) {
+				console.error(error);
+			}
 		})();
 	}
 	const interval = setInterval(() => {
-		if (synced) {
-			let date = new Date((offset + Math.floor(new Date().getTime() / 1000)) * 1000);
-			set(date);
-		} else {
-			set(null);
-		}
+		let date = new Date((offset + Math.floor(new Date().getTime() / 1000)) * 1000);
+		set({synced, date});
 	}, 1000);
 
 	return function stop() {

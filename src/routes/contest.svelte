@@ -28,15 +28,15 @@
 	function formatTime(dateString) {
 		return new Date(dateString).toLocaleTimeString("en-GB");
 	}
-	$: isAfterStart = new Date(info.info.startTime) <= $currentTime;
-	$: isBeforeEnd = $currentTime < new Date(info.info.endTime);
+	$: isAfterStart = new Date(info.info.startTime) <= $currentTime.date;
+	$: isBeforeEnd = $currentTime.date < new Date(info.info.endTime);
 	$: isAvaliable =
-		Boolean($currentTime) &&
-		new Date(info.info.startTime) <= $currentTime &&
-		$currentTime < new Date(info.info.endTime);
+		$currentTime.synced &&
+		isAfterStart &&
+		isBeforeEnd;
 </script>
 
-{#if !$currentTime}
+{#if !$currentTime.synced}
 	<h1>Loading...</h1>
 {:else if isBeforeEnd}
 	<h1>{info.info.name}</h1>

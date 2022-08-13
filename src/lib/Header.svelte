@@ -43,13 +43,7 @@
 			>
 		</li>
 		<li class="nav-item">
-			{#if $time}
-				<span class="btn btn-success pt-2 pb-2 ms-2 border-0 font-monospace"
-					>{$time.toLocaleTimeString('en-GB')}</span
-				>
-			{:else}
-				<span class="btn btn-secondary pt-2 pb-2 ms-2 border-0 font-monospace">{(new Date()).toLocaleTimeString('en-GB')}</span>
-			{/if}
+				<span class:btn-success={$time.synced} class:btn-secondary={!$time.synced} class="btn pt-2 pb-2 ms-2 border-0 font-monospace">{$time.date.toLocaleTimeString('en-GB')}</span>
 		</li>
 	</ul>
 </header>
