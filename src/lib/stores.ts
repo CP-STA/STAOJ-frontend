@@ -1,13 +1,17 @@
 import { readable } from 'svelte/store';
+import { browser } from '$app/env';
 
 let offset = 0;
 let synced = false;
-(async () => {
-	let response = await fetch('https://worldtimeapi.org/api/timezone/GMT');
-	let data = await response.json();
-	offset = data.unixtime - Math.floor(new Date().getTime() / 1000);
-	synced = true;
-})();
+
+if (browser) {
+	(async () => {
+		let response = await fetch('https://worldtimeapi.org/api/timezone/GMT');
+		let data = await response.json();
+		offset = data.unixtime - Math.floor(new Date().getTime() / 1000);
+		synced = true;
+	})();
+}
 
 export const time = readable<null | Date>(null, function start(set) {
 	const interval = setInterval(() => {
