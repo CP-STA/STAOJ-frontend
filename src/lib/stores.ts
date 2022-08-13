@@ -12,7 +12,7 @@ export const time = readable({synced: false, date: new Date()}, function start(s
 			try {
 				let response = await fetch('https://worldtimeapi.org/api/timezone/GMT');
 				if (!response.ok) {
-					throw Error("Response from time time url was not ok");
+					throw Error("Response from the time url was not ok");
 				}
 				let data = await response.json();
 				offset = data.unixtime - Math.floor(new Date().getTime() / 1000);
