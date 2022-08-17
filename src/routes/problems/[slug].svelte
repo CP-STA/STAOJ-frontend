@@ -26,10 +26,10 @@
 <div class="container">
 	<div class="row align-items-start">
 		<div class="col text-end">
-			Time: {problem.allowedTime} ms
+			Time: {problem.time} ms
 		</div>
 		<div class="col text-start">
-			Memory: {problem.allowedMemory} kb
+			Memory: {problem.memory} kb
 		</div>
 	</div>
 </div>
