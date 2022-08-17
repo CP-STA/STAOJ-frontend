@@ -20,12 +20,13 @@
 		</div>
 	</div>
 </div>
+<CodeInput languages={data.languages} />
 <h2>Problem Statement</h2>
 <p>
 	{data.problem.problemStatement}
 </p>
-<h2>Constrains</h2>
-<p>{data.constrains}</p>
+<h2>Constraints</h2>
+<p>{data.problem.constraints}</p>
 
 
 {#if data.problem.subtasks}
@@ -34,7 +35,7 @@
 			Subtask {i + 1} ({subtask.percentage * 100} %)
 		</h3>
 		<p>
-			{subtask.constrains}
+			{subtask.constraints}
 		</p>
 	{/each}
 {/if}
@@ -58,5 +59,3 @@
 		</div>
 	</div>
 {/each}
-
-<CodeInput languages={data.languages} />
