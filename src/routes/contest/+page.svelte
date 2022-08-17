@@ -1,35 +1,24 @@
-<script context="module">
-	export async function load({ fetch }) {
-		const url = `https://cdn.jsdelivr.net/gh/CP-STA/contest-problems@main/upcoming-contest.json`;
-		const response = await fetch(url);
-		const contestSlug = await response.json();
-		const contestUrl = `https://cdn.jsdelivr.net/gh/CP-STA/contest-problems@main/contests/${contestSlug}.json`;
-		const response2 = await fetch(contestUrl);
-
-		return {
-			status: response2.status,
-			props: {
-				info: response2.ok && (await response2.json())
-			}
-		};
-	}
-</script>
-
 <script>
-	// @ts-nocheck
+
 	import { time as currentTime } from '$lib/stores';
-	import Account from './account.svelte';
-	export let info;
-	const problems = info.problems;
+	/** @type {import('./$types').PageData} */
+	export let data; 
+
+	const problems = data.problems;
+
+	/** @param {String} dateString*/
 	function formatDate(dateString) {
 		const options = { year: 'numeric', month: 'long', day: 'numeric' };
+		// @ts-ignore
 		return new Date(dateString).toLocaleDateString("en-GB", options);
 	}
+
+	/** @param {String} dateString*/
 	function formatTime(dateString) {
 		return new Date(dateString).toLocaleTimeString("en-GB");
 	}
-	$: isAfterStart = new Date(info.info.startTime) <= $currentTime.date;
-	$: isBeforeEnd = $currentTime.date < new Date(info.info.endTime);
+	$: isAfterStart = new Date(data.info.startTime) <= $currentTime.date;
+	$: isBeforeEnd = $currentTime.date < new Date(data.info.endTime);
 	$: isAvaliable =
 		$currentTime.synced &&
 		isAfterStart &&
@@ -39,7 +28,7 @@
 {#if !$currentTime.synced}
 	<h1>Loading...</h1>
 {:else if isBeforeEnd}
-	<h1>{info.info.name}</h1>
+	<h1>{data.info.name}</h1>
 	{#if isAvaliable}
 		<table class="table">
 			<thead>
@@ -57,9 +46,9 @@
 		</table>
 	{:else}
 		<p>
-			This contest will begin at {formatTime(info.info.startTime)} and end at {formatTime(
-				info.info.endTime
-			)} on {formatDate(info.info.startTime)}
+			This contest will begin at {formatTime(data.info.startTime)} and end at {formatTime(
+				data.info.endTime
+			)} on {formatDate(data.info.startTime)}
 		</p>
 	{/if}
 {:else}
