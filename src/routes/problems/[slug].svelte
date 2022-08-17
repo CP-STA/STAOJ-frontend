@@ -11,6 +11,8 @@
 			}
 		};
 	}
+
+	import CodeInput from "$lib/CodeInput.svelte";
 </script>
 
 <script>
@@ -70,3 +72,5 @@
 		</div>
 	</div>
 {/each}
+
+<CodeInput problem={slug}/>
