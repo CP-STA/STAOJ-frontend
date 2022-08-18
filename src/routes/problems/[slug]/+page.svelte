@@ -4,7 +4,7 @@
 	/** @type {import('./$types').PageData} */
 	export let data;
 	import { page } from '$app/stores';
-	import CodeInput from "$lib/CodeInput.svelte";
+	import CodeInput from '$lib/Submission.svelte';
 	let slug = $page.params.slug;
 </script>
 
@@ -20,14 +20,13 @@
 		</div>
 	</div>
 </div>
-<CodeInput languages={data.languages} />
+<CodeInput languages={data.languages} problem={slug} />
 <h2>Problem Statement</h2>
 <p>
 	{data.problem.problemStatement}
 </p>
 <h2>Constraints</h2>
 <p>{data.problem.constraints}</p>
-
 
 {#if data.problem.subtasks}
 	{#each data.problem.subtasks as subtask, i}

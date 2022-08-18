@@ -43,7 +43,12 @@
 			>
 		</li>
 		<li class="nav-item">
-				<span class:btn-success={$time.synced} class:btn-secondary={!$time.synced} class="btn pt-2 pb-2 ms-2 border-0 font-monospace">{$time.date.toLocaleTimeString('en-GB')}</span>
+			<span
+				class:btn-success={$time.synced}
+				class:btn-secondary={!$time.synced}
+				class="btn pt-2 pb-2 ms-2 border-0 font-monospace"
+				>{$time.date.toLocaleTimeString('en-GB')}</span
+			>
 		</li>
 	</ul>
 </header>

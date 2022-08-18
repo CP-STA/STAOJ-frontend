@@ -1,4 +1,4 @@
-import { error } from "@sveltejs/kit";
+import { error } from '@sveltejs/kit';
 /** @type {import('./$types').PageLoad} */
 export async function load({ fetch }) {
 	const url = `https://cdn.jsdelivr.net/gh/CP-STA/contest-problems@main/upcoming-contest.json`;

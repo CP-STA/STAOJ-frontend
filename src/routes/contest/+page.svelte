@@ -1,8 +1,7 @@
 <script>
-
 	import { time as currentTime } from '$lib/stores';
 	/** @type {import('./$types').PageData} */
-	export let data; 
+	export let data;
 
 	const problems = data.problems;
 
@@ -10,19 +9,16 @@
 	function formatDate(dateString) {
 		const options = { year: 'numeric', month: 'long', day: 'numeric' };
 		// @ts-ignore
-		return new Date(dateString).toLocaleDateString("en-GB", options);
+		return new Date(dateString).toLocaleDateString('en-GB', options);
 	}
 
 	/** @param {String} dateString*/
 	function formatTime(dateString) {
-		return new Date(dateString).toLocaleTimeString("en-GB");
+		return new Date(dateString).toLocaleTimeString('en-GB');
 	}
 	$: isAfterStart = new Date(data.info.startTime) <= $currentTime.date;
 	$: isBeforeEnd = $currentTime.date < new Date(data.info.endTime);
-	$: isAvaliable =
-		$currentTime.synced &&
-		isAfterStart &&
-		isBeforeEnd;
+	$: isAvaliable = $currentTime.synced && isAfterStart && isBeforeEnd;
 </script>
 
 {#if !$currentTime.synced}

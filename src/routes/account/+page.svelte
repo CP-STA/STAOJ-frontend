@@ -29,7 +29,7 @@
 {#if !$user.loaded}
 	<p>Loading...</p>
 {:else if $user.user}
-	<p>Hello {$user.githubHandle}.</p>
+	<p>Hello {$user.user.displayName}.</p>
 {:else}
 	<button type="button" class="w-100 btn btn-lg btn-primary mb-3" on:click={signInWithGithub}
 		><i class="bi bi-github" /> Sign in with Github</button

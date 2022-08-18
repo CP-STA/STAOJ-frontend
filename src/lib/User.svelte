@@ -6,22 +6,15 @@
 
 	const auth = getAuth(app);
 	export const user = readable(
-		{ loaded: false, user: null, githubHandle: null },
+		{ loaded: false, user: null },
 		function start(set) {
 			onAuthStateChanged(auth, async (user) => {
 				if (user) {
-					// User is signed in, see docs for a list of available properties
-					// https://firebase.google.com/docs/reference/js/firebase.User
-					const response = await fetch(`https://api.github.com/user/${user.providerData[0].uid}`, {
-						headers: { Accept: 'application/json' }
-					});
-					let j = await response.json();
-					const githubHandle = j.login;
 					// @ts-ignore
-					set({ loaded: true, user, githubHandle });
+					set({ loaded: true, user });
 				} else {
 					// @ts-ignore
-					set({ loaded: true, user: null, githubHandle: null });
+					set({ loaded: true, user: null });
 				}
 			});
 		}
