@@ -197,7 +197,7 @@
 				{#if !$user.loaded}
 					Loading account information...
 				{:else if !$user.user}
-					Please login.
+					Please log in.
 				{:else}
 					<PreviousSubmissions
 						bind:this={previousSubmissions}
