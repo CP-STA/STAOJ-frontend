@@ -1,4 +1,5 @@
 <script>
+  // @ts-nocheck
 	// TS is so fucking annoying. After adding so much type annotation to make TS happy I still get erorr like Property does not exists on type 'never'.
 
 	import { onMount } from 'svelte';
