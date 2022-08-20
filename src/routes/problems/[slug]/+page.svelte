@@ -52,7 +52,7 @@
 			<h3>Output</h3>
 			<div class="card">
 				<div class="card-body">
-					<code>{example.input}</code>
+					<code>{example.output}</code>
 				</div>
 			</div>
 		</div>
