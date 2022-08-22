@@ -23,7 +23,7 @@
 <CodeInput languages={data.languages} problem={slug} />
 <h2>Problem Statement</h2>
 <p>
-	{data.problem.problemStatement}
+	{data.problem.statement}
 </p>
 <h2>Constraints</h2>
 <p>{data.problem.constraints}</p>
