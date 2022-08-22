@@ -1,12 +1,12 @@
-import { db } from "$lib/firebase";
-import { doc, getDoc } from "firebase/firestore";
+import { db } from '$lib/firebase';
+import { doc, getDoc } from 'firebase/firestore';
 
 /** @type {import('./$types').PageLoad} */
 export async function load({ params, fetch, url }) {
 	const isContest = url.searchParams.get('contest') == 'true';
 	let problem;
-	if(isContest) {
-		const docRef = doc(db, "problems", params.slug);
+	if (isContest) {
+		const docRef = doc(db, 'problems', params.slug);
 		const docSnap = await getDoc(docRef);
 		problem = docSnap.data();
 	} else {

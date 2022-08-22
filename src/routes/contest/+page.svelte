@@ -35,7 +35,10 @@
 			<tbody>
 				{#each problems as problem}
 					<tr>
-						<td><a sveltekit:prefetch href="/problems/{problem.slug}?contest=true">{problem.name}</a></td>
+						<td
+							><a sveltekit:prefetch href="/problems/{problem.slug}?contest=true">{problem.name}</a
+							></td
+						>
 					</tr>
 				{/each}
 			</tbody>
