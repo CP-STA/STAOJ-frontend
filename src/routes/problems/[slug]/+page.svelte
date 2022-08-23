@@ -1,6 +1,19 @@
 <script>
 	// @ts-nocheck
 
+	import katex from 'katex/dist/katex.mjs';
+
+	/** @param {String} s*/
+	function katexString(s) {
+		return s
+			.replaceAll(/\$\$(.+?)\$\$/g, (match, capture) => {
+				return katex.renderToString(capture, { displayMode: true, throwOnError: false });
+			})
+			.replaceAll(/\$(.+?)\$/g, (match, capture) => {
+				return katex.renderToString(capture, { throwOnError: false });
+			});
+	}
+
 	/** @type {import('./$types').PageData} */
 	export let data;
 	import { page } from '$app/stores';
@@ -23,18 +36,18 @@
 <CodeInput languages={data.languages} problem={slug} />
 <h2>Problem Statement</h2>
 <p>
-	{data.problem.statement}
+	{@html katexString(data.problem.statement)}
 </p>
 <h2>Constraints</h2>
-<p>{data.problem.constraints}</p>
+<p>{@html katexString(data.problem.constraints)}</p>
 
 {#if data.problem.subtasks}
 	{#each data.problem.subtasks as subtask, i}
 		<h3>
-			Subtask {i + 1} ({subtask.percentage * 100} %)
+			Subtask {i + 1} ({subtask.score * 100}%)
 		</h3>
 		<p>
-			{subtask.constraints}
+			{@html katexString(subtask.constraints)}
 		</p>
 	{/each}
 {/if}
