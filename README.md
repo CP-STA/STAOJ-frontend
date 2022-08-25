@@ -1,3 +1,5 @@
+This had been moved to the [STAOJ monorepo](https://github.com/CP-STA/STAOJ/tree/master/frontend)
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
